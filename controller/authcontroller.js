@@ -378,7 +378,7 @@ const applyJob = async (req, res) => {
     // Upload file to Cloudinary
     const fileUploadResult = await new Promise((resolve, reject) => {
       stream.pipe(
-        cloudinary.uploader.upload({ resource_type: 'auto' }, (error, result) => {
+        cloudinary.uploader.upload_stream({ resource_type: 'auto' }, (error, result) => {
           if (error) {
             console.error('Error uploading to Cloudinary:', error);
             reject('Failed to upload file.');
