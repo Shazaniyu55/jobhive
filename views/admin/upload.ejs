@@ -96,8 +96,8 @@
               </a>
               <div class="collapse" id="form-elements">
                 <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"><a class="nav-link" href="https://jobhive-inky.vercel.app/upload">Upload Jobs</a></li>
-                  <li class="nav-item"><a class="nav-link" href="https://jobhive-inky.vercel.app/manage/<%= user.id %>">Manage Jobs Posts</a></li>
+                  <li class="nav-item"><a class="nav-link" href="https://www.transperfectly.com/upload">Upload Jobs</a></li>
+                  <li class="nav-item"><a class="nav-link" href="https://www.transperfectly.com/manage/<%= user.id %>">Manage Jobs Posts</a></li>
 
                 </ul>
               </div>
@@ -228,7 +228,7 @@
           const formData = new FormData(this); // 'this' refers to the form
   
           try {
-              const response = await fetch('https://jobhive-inky.vercel.app/api/auth/postjob', { // Adjust URL based on your route
+              const response = await fetch('https://www.transperfectly.com/api/auth/postjob', { // Adjust URL based on your route
                   method: 'POST',
                   body: formData, // Send the FormData object directly
               });

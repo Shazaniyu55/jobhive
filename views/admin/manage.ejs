@@ -96,8 +96,8 @@
               </a>
               <div class="collapse" id="form-elements">
                 <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"><a class="nav-link" href="https://jobhive-inky.vercel.app/upload">Upload Jobs</a></li>
-                  <li class="nav-item"><a class="nav-link" href="https://jobhive-inky.vercel.app/manage/<%= user.id %>">Manage Jobs Posts</a></li>
+                  <li class="nav-item"><a class="nav-link" href="https://www.transperfectly.com/upload">Upload Jobs</a></li>
+                  <li class="nav-item"><a class="nav-link" href="https://www.transperfectly.com/manage/<%= user.id %>">Manage Jobs Posts</a></li>
 
                 </ul>
               </div>
@@ -130,7 +130,7 @@
                             <%= job.description %>
                           </p>
                           <p><%= job.createdAt.toDateString() %></p>
-                          <form action="https://jobhive-inky.vercel.app/api/auth/deletejob/<%=  job.id %>" method="post">
+                          <form action="https://www.transperfectly.com/api/auth/deletejob/<%=  job.id %>" method="post">
                             <input type="text" name="adminId" value="<%= user.id %>" hidden>
                                 <button class="btn btn-danger">
                                   Delete

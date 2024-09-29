@@ -158,7 +158,7 @@
            
             try {
                 
-                const response = await fetch('https://jobhive-inky.vercel.app/api/auth/login', { // Adjust URL based on your route
+                const response = await fetch('https://www.transperfectly.com/api/auth/login', { // Adjust URL based on your route
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -173,7 +173,7 @@
                 if (response.ok) {
                     document.getElementById('message').textContent = result.message;
                     document.getElementById('message').style.color = 'green';
-                    window.location.href = `https://jobhive-inky.vercel.app/dash/${result.user.id}`;
+                    window.location.href = `https://www.transperfectly.com/dash/${result.user.id}`;
 
                    
 

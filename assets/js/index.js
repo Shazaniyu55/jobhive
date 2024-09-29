@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const data = Object.fromEntries(formData.entries());
 
     try {
-      const response = await fetch('http://localhost:2400/api/auth/signup', {
+      const response = await fetch('https://www.transperfectly.com/api/auth/signup', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

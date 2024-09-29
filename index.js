@@ -14,7 +14,7 @@ const MongoStore = require('connect-mongo');
 require('dotenv').config();
 
 mongoose.connect(process.env.CONNECTION_URI).then(()=>{console.log("Database Connected")}).catch((err)=>{console.log(err)});
-app.use(cors({origin: "https://jobhive-inky.vercel.app/"}));
+app.use(cors({origin: "https://www.transperfectly.com/"}));
 app.use(bodyparser.json());
 app.use(express.json());
 // Configure session middleware
