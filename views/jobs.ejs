@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+ 
+    <link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
+    rel="stylesheet"
+  />
+  <link rel="icon" href="/images/bag.png">
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+  />
+  <link rel="stylesheet" href="/css/styles.css" />
+  <link rel="stylesheet" href="/css/jobs.css" />
+  
+    <title>Job Hive</title>
+
+    <style>
+      #popup-form label {
+  font-size: 1rem;
+  color: #333;
+  margin-bottom: 5px;
+  display: block;
+  text-align: left;
+}
+      /* Popup styling */
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup-content {
+  background: white;
+  padding: 20px;
+  border-radius: 5px;
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+  position: relative;
+}
+
+.popup-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.popup-content h2 {
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+}
+
+.popup-content p {
+  margin-bottom: 20px;
+  font-size: 1rem;
+  color: #555;
+}
+
+#popup-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#popup-form input[type="text"] {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+
+#popup-form input[type="email"] {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+#popup-form input[type="file"] {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+#popup-form button {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#popup-form button:hover {
+  background-color: #0056b3;
+}
+
+    </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav__header">
+      <div class="nav__logo">
+        <a href="#" class="logo">Job<span>Hive</span></a>
+      </div>
+      <div class="nav__menu__btn" id="menu-btn">
+        <i class="ri-menu-line"></i>
+      </div>
+    </div>
+    <ul class="nav__links" id="nav-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/job">Jobs</a></li>
+      <li><a href="/service">Services</a></li>
+
+      <form action="https://jobhive-inky.vercel.app/api/auth/search" method="post">
+        <div class="search-container">
+
+     <input type="text" name="title" id="title" placeholder="Search Job Type" class="search-input">
+     <button type="submit" class="search-btn">
+       <svg xmlns="http://www.w3.org/2000/svg" class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+     </button>
+   </div>
+   </form>
+     
+      
+       
+    </ul>
+  </nav>
+
+
+  <div class="jobs" id="jobs">
+    <div class="top-div">
+
+       
+        <p>The <span>#1 remote job site</span> to find vetted flexible, hybrid, or work from home jobs since 2007.</p>
+
+        <ul>
+            <li><i class="fa-solid fa-check"></i>100% hand-screened, high-quality remote jobs</li>
+            <li><i class="fa-solid fa-check"></i>Advanced remote search filters</li>
+            <li><i class="fa-solid fa-check"></i>Entry-level to executive roles</li>
+            <li><i class="fa-solid fa-check"></i>No ads, junk, or scams</li>
+        </ul>
+
+        
+        <img src="/images/remote-removebg-preview.png" alt="">
+    </div>
+    <div class="bottom-div">
+        <p>Featuring 128,798 remote jobs from 6,603 companies</p>
+
+        <form action="https://jobhive-inky.vercel.app/api/auth/search" method="post">
+          <div class="inp">
+            <input type="text" name="title" id="search" placeholder="Search by job title, keyword, etc">
+            <i class="fa fa-search"></i>
+        </div>
+        </form>
+     
+    </div>
+
+
+
+    <div class="top-cat">
+
+
+        <p id="headd">Top Categories</p>
+
+
+        <div class="writing">
+            <img src="/images/writing-pencil-svgrepo-com.png" alt="">
+            <p>Writing</p>
+        </div>
+
+        <div class="cosuser">
+            <img src="/images/customer-service-worker-svgrepo-com.png" alt="">
+            <p>Coustomer Service</p>
+        </div>
+
+        <div class="Acc-fin">
+            <img src="/images/business-finance-corporate-23-svgrepo-com.png" alt="">
+            <p>Accounting and Finance</p>
+        </div>
+
+        <div class="Mark">
+                <img src="/images/marketing-market-social-svgrepo-com.png" alt="">
+            <p>Marketing</p>
+        </div>
+
+        <div class="computer">
+            <img src="/images/computer-and-house-svgrepo-com.png" alt="">
+            <p>Computer and IT</p>
+        </div>
+   
+    </div>
+       
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="advert">
+
+        <h2 class="ad1">Over 10 Million Job Seekers Have Used FlexJobs to Find a Better Way to Work</h2>
+
+        <h2 class="ad2"></h2>
+
+        <div class="inp">
+            <input type="text" name="search" id="search" placeholder="Search by job title, keyword, etc">
+            <i class="fa fa-search"></i>
+        </div>
+    </div>
+
+
+</div>
+
+
+
+ 
+
+
+    
+
+
+ <!-- Popup HTML -->
+<div id="popup" class="popup" style="display: none;">
+  <div class="popup-content">
+    <span class="popup-close">&times;</span>
+    <h2>Apply for Job</h2>
+    <p id="popup-job-title"></p>
+    <form id="popup-form" action="https://jobhive-inky.vercel.app/api/auth/applyjob" method="post" enctype="multipart/form-data">
+      <input type="hidden" id="popup-job-id" name="jobId">
+      <input type="hidden" id="popup-job-title-hidden" name="jobTitle">
+      
+      <!-- User ID Label and Input -->
+      <label for="popup-fullname">Full Name:</label>
+      <input type="text" id="popup-fullname" name="fullname" placeholder="Enter your Full Name" required>
+      
+      <!-- Experience Label and Input -->
+      <label for="popup-experience">Years of Experience:</label>
+      <input type="text" id="popup-experience" name="experience" placeholder="Years of experience" required>
+
+      <!-- Email Label and Input -->
+      <label for="popup-email">Email:</label>
+      <input type="email" id="popup-email" name="email" placeholder="Email" required>
+
+      <!-- File Upload Label and Input -->
+      <label for="popup-file">Upload Resume:</label>
+      <input type="file" id="popup-file" name="image" required>
+
+      <!-- Submit Button -->
+      <button type="submit" class="btn">Submit Application</button>
+    </form>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="section__container footer__container">
+    <div class="footer__col">
+      <div class="footer__logo">
+        <a href="#" class="logo">Job<span>Hive</span></a>
+      </div>
+      <p>
+        Our platform is designed to help you find the perfect job and
+        achieve your professional dreams.
+      </p>
+    </div>
+    <div class="footer__col">
+      <h4>Quick Links</h4>
+      <ul class="footer__links">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Jobs</a></li>
+        <li><a href="#">Testimonials</a></li>
+        <li><a href="#">Contact Us</a></li>
+      </ul>
+    </div>
+    
+    <div class="footer__col">
+      <h4>Contact Us</h4>
+      <ul class="footer__links">
+        <li>
+          <a href="#">
+            <span><i class="ri-phone-fill"></i></span> +91 234 56788
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <span><i class="ri-map-pin-2-fill"></i></span> 123 Main Street,
+            Anytown, USA
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer__bar">
+    Copyright © 2021 Job Hive. All rights reserved.
+
+  </div>
+</footer>
+
+
+
+
+
+
+
+    <!-- popup -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+  const popup = document.getElementById('popup');
+  const popupClose = document.querySelector('.popup-close');
+  const popupJobTitle = document.getElementById('popup-job-title');
+  const popupJobId = document.getElementById('popup-job-id');
+  const popupJobTitleHidden = document.getElementById('popup-job-title-hidden');
+  
+  // Function to open the popup
+  function openPopup(jobTitle, jobId) {
+    popupJobTitle.textContent = jobTitle;
+    popupJobId.value = jobId;
+    popupJobTitleHidden.value = jobTitle;
+    popup.style.display = 'flex';
+  }
+
+  // Function to close the popup
+  function closePopup() {
+    popup.style.display = 'none';
+  }
+
+  // Add event listener to all Apply buttons
+  document.querySelectorAll('.steps__card .btn').forEach(button => {
+    button.addEventListener('click', function(event) {
+      event.preventDefault();
+      const jobTitle = this.closest('.steps__card').querySelector('h4').textContent;
+      const jobId = this.closest('form').querySelector('input[name="userId"]').value;
+
+      // Replace this with the actual userId if available
+      const userId = 'yourUserId'; 
+
+      openPopup(jobTitle, jobId);
+    });
+  });
+
+  // Add event listener to close button
+  popupClose.addEventListener('click', closePopup);
+
+  // Optionally, close popup if clicking outside of popup content
+  window.addEventListener('click', function(event) {
+    if (event.target === popup) {
+      closePopup();
+    }
+  });
+});
+ 
+
+    </script>
+
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="/js/main.js"></script>
+    
+</body>
+</html>

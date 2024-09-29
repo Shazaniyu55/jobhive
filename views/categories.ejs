@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="/images/bag.png">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/jobs.css">
+    <title>Job Hive</title>
+
+    <style>
+
+      .popup-form label {
+  font-size: 1rem;
+  color: #333;
+  margin-bottom: 5px;
+  display: block;
+  text-align: left;
+}
+      /* Popup styling */
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup-content {
+  background: white;
+  padding: 20px;
+  border-radius: 5px;
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+  position: relative;
+}
+
+.popup-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.popup-content h2 {
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+}
+
+.popup-content p {
+  margin-bottom: 20px;
+  font-size: 1rem;
+  color: #555;
+}
+
+.popup-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.popup-form input[type="text"] {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+
+.popup-form input[type="email"] {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.popup-form input[type="file"] {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.popup-form button {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.popup-form button:hover {
+  background-color: #0056b3;
+}
+         /* Add this CSS to style the preloader */
+   .preloader {
+       position: fixed;
+       top: 0;
+       left: 0;
+       width: 100%;
+       height: 100%;
+       background-color: rgba(255, 255, 255, 0.8);
+       display: none; /* Hidden by default */
+       justify-content: center;
+       align-items: center;
+       z-index: 9999;
+   }
+   
+   .spinner {
+       border: 4px solid rgba(0, 0, 0, 0.1);
+       border-left: 4px solid #3498db;
+       border-radius: 50%;
+       width: 40px;
+       height: 40px;
+       animation: spin 1s linear infinite;
+   }
+   
+   @keyframes spin {
+       0% { transform: rotate(0deg); }
+       100% { transform: rotate(360deg); }
+   }
+
+
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div class="nav__header">
+        <div class="nav__logo">
+          <a href="#" class="logo">Job<span>Hive</span></a>
+        </div>
+        <div class="nav_menu_btn" id="menu-btn">
+          <i class="ri-menu-line"></i>
+        </div>
+      </div>
+       
+      </div>
+      <ul class="nav__links" id="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="jobs.html">Jobs</a></li>
+        <li><a href="/service">Services</a></li>
+
+        <form action="">
+             <div class="search-container">
+     
+          <input type="text" placeholder="Search Job Type" class="search-input">
+          <button type="submit" class="search-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          </button>
+        </div>
+        </form>
+
+</ul>
+    </nav>
+
+
+
+
+
+       
+
+       
+
+    <div id="popup" class="popup" style="display: none;">
+      <div class="popup-content">
+          <span class="popup-close">&times;</span>
+          <h2 id="message">Apply for Job</h2>
+          <p id="popup-job-title"></p>
+          <form class="popup-form" id="signUpForm" enctype="multipart/form-data">
+              <input type="hidden" id="popup-job-id" name="">
+              <input type="hidden" id="popup-admin-email"  name="adminEmail">
+
+              <input type="hidden" id="popup-job-title-hidden" name="jobTitle">
+              <input type="text" id="popup-posted-by" name="jobId"> <!-- New hidden field -->
+  
+              <!-- User ID Label and Input -->
+              <label for="popup-fullname">Full Name:</label>
+              <input type="text" id="popup-fullname" name="fullname" placeholder="Enter your Full Name" required>
+  
+              <!-- Experience Label and Input -->
+              <label for="popup-experience">Years of Experience:</label>
+              <input type="text" id="popup-experience" name="experience" placeholder="Years of experience" required>
+  
+              <!-- Email Label and Input -->
+              <label for="popup-email">Email:</label>
+              <input type="email" id="popup-email" name="email" placeholder="Email" required>
+  
+              <!-- File Upload Label and Input -->
+              <label for="popup-file">Upload Resume:</label>
+              <input type="file" id="popup-file" name="image" required>
+  
+              <!-- Submit Button -->
+              <button type="submit" class="btn">Submit Application</button>
+          </form>
+      </div>
+  </div>
+
+          <div class="categories">
+
+          <div class="results">
+            <p class="resup" id="message">Job Search Results</p>
+            <abbr title="What would you like to know"><i class="fa-solid fa-info"></i></abbr>
+        
+        
+            <% if (employers.length === 0) { %>
+              <p style="text-align: center;">No jobs Posted yet.</p>
+            <% } else { %>
+              <% employers.forEach(jobs => { %>
+
+        
+            <div class="dresult" data-job-id="<%= jobs.id %>" data-admin-email="<%= jobs.id %>" data-job-title="<%= jobs.title %>"  data-posted-by="<%= jobs.postedBy %>">
+                <div class="star">
+                    <i class="fa-solid fa-star"></i>
+                    <p id="feat">Featured</p>
+                </div>
+        
+                <div class="timee">
+                  <p id="time"><%= jobs.createdAt.toDateString() %></p>
+              </div>
+
+                <div class="two-pp">
+                    <p id="topic"><%= jobs.title %></p>
+                </div>
+        
+              
+        
+                <div class="more-pps">
+                    <p id="re">100% <%= jobs.jobtype %></p>
+                    <p id="timee"><%= jobs.jobtype %></p>
+                    <p id="amount"><span id="pay"><%= jobs.hourlyrate %></span><span id="currency">USD</span> <span id="duration">Hourly</span></p>
+                </div>
+        
+                <div class="where">
+                    <i class="fa fa-location-dot"></i>
+                    <p id="wf"><%= jobs.state %></p>
+                </div>
+        
+                <div class="talk">
+                    <p id="talkp"><%= jobs.description %></p>
+                </div>
+        
+                <div class="profile">
+                    <img src="<%= jobs.posterimg %>" alt="profile-img">
+                    <p id="profile-name"><%= jobs.postername %></p>
+                </div>
+                
+                <button class="btn apply-btn">Apply</button>
+            </div>
+            <% }) %>
+            <% } %>
+        </div>
+      </div>
+
+
+
+
+
+
+
+
+
+ <!-- preloader -->
+ <div id="preloader" class="preloader">
+  <div class="spinner"></div>
+  <p>Loading...</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+    
+    document.addEventListener('DOMContentLoaded', function() {
+    const popup = document.getElementById('popup');
+    const popupClose = document.querySelector('.popup-close');
+    const popupJobTitle = document.getElementById('popup-job-title');
+    const popupJobId = document.getElementById('popup-job-id');
+    const popupJobTitleHidden = document.getElementById('popup-job-title-hidden');
+    const popupPostedBy = document.getElementById('popup-posted-by'); // New hidden field
+    const popupadminEmail = document.getElementById('popup-admin-email')
+    // Function to open the popup
+    function openPopup(jobTitle, jobId, postedBy, adminEmail) {
+        popupJobTitle.textContent = jobTitle;
+        popupJobId.value = jobId;
+        popupadminEmail.value = adminEmail;
+        popupJobTitleHidden.value = jobTitle;
+        popupPostedBy.value = postedBy; // Set the value of the new hidden field
+        popup.style.display = 'flex';
+    }
+
+    // Function to close the popup
+    function closePopup() {
+        popup.style.display = 'none';
+    }
+
+    // Add event listener to all Apply buttons
+    document.querySelectorAll('.dresult .apply-btn').forEach(button => {
+        button.addEventListener('click', function(event) {
+            event.preventDefault();
+
+            // Fetch job details from data attributes
+            const jobElement = this.closest('.dresult');
+            const jobTitle = jobElement.getAttribute('data-job-title');
+            const jobId = jobElement.getAttribute('data-job-id');
+            const postedBy = jobElement.getAttribute('data-posted-by');
+            const adminEmail = jobElement.getAttribute('data-admin-email'); // Get the postedBy value
+
+            // Open the popup with the job title, jobId, and postedBy
+            openPopup(jobTitle, jobId, postedBy, adminEmail);
+        });
+    });
+
+    // Add event listener to close button
+    popupClose.addEventListener('click', closePopup);
+
+    // Optionally, close popup if clicking outside of popup content
+    window.addEventListener('click', function(event) {
+        if (event.target === popup) {
+            closePopup();
+        }
+    });
+});
+
+
+
+document.getElementById('signUpForm').addEventListener('submit', async function(event) {
+            event.preventDefault(); // Prevent the default form submission
+                //show preloader
+            document.getElementById('preloader').style.display = 'flex';
+
+            const formData = new FormData(this);
+            //const data = Object.fromEntries(formData.entries());
+       
+           
+            try {
+                
+                const response = await fetch('https://jobhive-inky.vercel.app/api/auth/applyjob', { // Adjust URL based on your route
+                    method: 'POST',
+                    body: formData,
+                });
+
+                const result = await response.json();
+                console.log(result.id)
+
+                if (response.ok) {
+                    document.getElementById('message').textContent = result.message;
+                    document.getElementById('message').style.color = 'green';
+                   // window.location.href = `http://localhost:2400/dash/${result.user.id}`;
+
+                   
+
+                } else {
+                    document.getElementById('message').textContent = result.message;
+                    document.getElementById('message').style.color = 'red';
+                    closePopup()
+                }
+            } catch (error) {
+              console.log(error)
+                document.getElementById('message').textContent = 'An error occurred. Please try again.';
+                document.getElementById('message').style.color = 'red';
+            }finally{
+                //hode preloader
+                document.getElementById('preloader').style.display = 'none';
+            }
+        });
+
+
+</script>
+
+
+
+
+
+<script src="/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Star Admin2 </title>
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="/vendors/feather/feather.css">
+    <link rel="stylesheet" href="/vendors/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="/vendors/ti-icons/css/themify-icons.css">
+    <link rel="stylesheet" href="/vendors/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/vendors/typicons/typicons.css">
+    <link rel="stylesheet" href="/vendors/simple-line-icons/css/simple-line-icons.css">
+    <link rel="stylesheet" href="/vendors/css/vendor.bundle.base.css">
+    <link rel="stylesheet" href="/vendors/bootstrap-datepicker/bootstrap-datepicker.min.css">
+    <!-- endinject -->
+    <!-- Plugin css for this page -->
+    <link rel="stylesheet" href="/vendors/select2/select2.min.css">
+    <link rel="stylesheet" href="/vendors/select2-bootstrap-theme/select2-bootstrap.min.css">
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="/css/style2.css">
+    <!-- endinject -->
+    <link rel="shortcut icon" href="" />
+    <style>
+      /* Add this CSS to style the preloader */
+   .preloader {
+       position: fixed;
+       top: 0;
+       left: 0;
+       width: 100%;
+       height: 100%;
+       background-color: rgba(255, 255, 255, 0.8);
+       display: none; /* Hidden by default */
+       justify-content: center;
+       align-items: center;
+       z-index: 9999;
+   }
+   
+   .spinner {
+       border: 4px solid rgba(0, 0, 0, 0.1);
+       border-left: 4px solid #3498db;
+       border-radius: 50%;
+       width: 40px;
+       height: 40px;
+       animation: spin 1s linear infinite;
+   }
+   
+   @keyframes spin {
+       0% { transform: rotate(0deg); }
+       100% { transform: rotate(360deg); }
+   }
+   
+  </style>
+  </head>
+  <body>
+    <div class="container-scroller">
+      <!-- partial:../../partials/_navbar.html -->
+      <nav class="navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex align-items-top flex-row">
+        <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-start">
+          <div class="me-3">
+            <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-bs-toggle="minimize">
+              <span class="icon-menu"></span>
+            </button>
+          </div>
+          <div>
+            <a class="navbar-brand brand-logo" href="">
+              <img src="/images/logo.svg" alt="logo" />
+            </a>
+            <a class="navbar-brand brand-logo-mini" href="">
+              <img src="/images/logo-mini.svg" alt="logo" />
+            </a>
+          </div>
+        </div>
+        
+      </nav>
+      <!-- partial -->
+      <div class="container-fluid page-body-wrapper">
+        <!-- partial:../../partials/_sidebar.html -->
+        <nav class="sidebar sidebar-offcanvas" id="sidebar">
+          <ul class="nav">
+            <li class="nav-item">
+              <a class="nav-link" href="/dash/<%= user.id %>">
+                <i class="mdi mdi-grid-large menu-icon"></i>
+                <span class="menu-title">Dashboard</span>
+              </a>
+            </li>
+            <li class="nav-item nav-category">Action</li>
+            
+            <li class="nav-item">
+              <a class="nav-link" data-bs-toggle="collapse" href="" aria-expanded="false" aria-controls="form-elements">
+                <i class="menu-icon mdi mdi-card-text-outline"></i>
+                <span class="menu-title">Upload Product</span>
+                <i class="menu-arrow"></i>
+              </a>
+              <div class="collapse" id="form-elements">
+                <ul class="nav flex-column sub-menu">
+                  <li class="nav-item"><a class="nav-link" href="https://jobhive-inky.vercel.app/upload">Upload Jobs</a></li>
+                  <li class="nav-item"><a class="nav-link" href="https://jobhive-inky.vercel.app/manage/<%= user.id %>">Manage Jobs Posts</a></li>
+
+                </ul>
+              </div>
+            </li>
+            
+            
+            
+            
+            
+          </ul>
+        </nav>
+        <!-- partial -->
+        <div class="main-panel">
+          <div class="content-wrapper">
+            <div class="row">
+              <div class="col-md-6 grid-margin stretch-card">
+
+                <div class="steps__grid">
+                    <% if (jobs.length === 0) { %>
+                      <p style="text-align: center;">You have not posted any jobs yet.</p>
+                    <% } else { %>
+                      <% jobs.forEach(job => { %>
+                        <div class="steps__card">
+                          <span><i class="ri-user-fill"></i></span>
+                          <h4><%= job.title %></h4>
+                          <p style="color: blue;">
+                            <%= job.state %>
+                          </p>
+                          <p>
+                            <%= job.description %>
+                          </p>
+                          <p><%= job.createdAt.toDateString() %></p>
+                          <form action="https://jobhive-inky.vercel.app/api/auth/deletejob/<%=  job.id %>" method="post">
+                            <input type="text" name="adminId" value="<%= user.id %>" hidden>
+                                <button class="btn btn-danger">
+                                  Delete
+                                </button>
+                          </form>
+                        </div>
+                      <% }) %>
+                    <% } %>
+                  </div>
+
+               
+              </div>
+              
+              
+              
+              
+      <!-- preloader -->
+    <div id="preloader" class="preloader">
+      <div class="spinner"></div>
+      <p>Loading...</p>
+  </div>         
+              
+            
+              
+              
+              
+              
+              
+            </div>
+          </div>
+          <!-- content-wrapper ends -->
+          <!-- partial:../../partials/_footer.html -->
+        
+          <!-- partial -->
+        </div>
+        <!-- main-panel ends -->
+      </div>
+      <!-- page-body-wrapper ends -->
+    </div>
+
+   
+    <!-- container-scroller -->
+    <!-- plugins:js -->
+    <script src="/vendors/js/vendor.bundle.base.js"></script>
+    <script src="/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page -->
+    <script src="/vendors/typeahead.js/typeahead.bundle.min.js"></script>
+    <script src="/vendors/select2/select2.min.js"></script>
+    <!-- End plugin js for this page -->
+    <!-- inject:js -->
+    <script src="/js/off-canvas.js"></script>
+    <script src="/js/template.js"></script>
+    <script src="/js/settings.js"></script>
+    <script src="/js/hoverable-collapse.js"></script>
+    <script src="/js/todolist.js"></script>
+    <!-- endinject -->
+    <!-- Custom js for this page-->
+    <script src="/js/file-upload.js"></script>
+    <script src="/js/typeahead.js"></script>
+    <script src="/js/select2.js"></script>
+    <!-- End custom js for this page-->
+  </body>
+</html>

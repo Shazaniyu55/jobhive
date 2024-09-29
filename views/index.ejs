@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="/images/bag.png">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <link rel="stylesheet" href="/css/styles.css" />
+    <title>Job Hive</title>
+  </head>
+  <body>
+    <nav>
+      <div class="nav__header">
+        <div class="nav__logo">
+          <a href="#" class="logo">Job<span>Hive</span></a>
+        </div>
+        <div class="nav__menu__btn" id="menu-btn">
+          <i class="ri-menu-line"></i>
+        </div>
+      </div>
+      <ul class="nav__links" id="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/job">Jobs</a></li>
+        <li><a href="/service">Services</a></li>
+
+        <form action="http://localhost:2400/api/auth/search" method="post">
+             <div class="search-container">
+     
+          <input type="text" name="title" id="title" placeholder="Search Job Type" class="search-input">
+          <button type="submit" class="search-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          </button>
+        </div>
+        </form>
+       
+        
+         
+      </ul>
+    </nav>
+    <header class="section__container header__container" id="home">
+   
+      <h2>
+        <img src="/images/bag.png" alt="bag" />
+        No.1 Job Hunt Website
+      </h2>
+      
+      <h1>Search, Apply &<br />Get Your <span>Ideal Job</span></h1>
+      <p>
+        Unlock your potential today. Explore endless opportunities, 
+        apply for jobs that align with your skills and ambitions, 
+        and elevate your career to the next level.
+      </p>
+
+
+
+
+
+      
+    
+      
+      </div> 
+    </header>
+
+    <section class="steps" id="about">
+      <div class="section__container steps__container">
+        <h2 class="section__header">
+          Search For Job  <span>Around You</span>
+        </h2>
+        <p class="section__description">
+          Search for any Region
+        </p>
+        <div class="steps__grid">
+          
+          <form action="http://localhost:2400/api/auth/searchstate" id="gooo" method="post">
+            <div class="search-container" >
+    
+         <input type="text" name="state" id="state" placeholder="Search Job by state/region" class="search-input">
+         <button type="submit" class="search-btn">
+           <svg xmlns="http://www.w3.org/2000/svg" class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+         </button>
+       </div>
+       </form>
+         
+         
+        </div>
+      </div>
+    </section>
+
+    <section class="steps" id="about">
+      <div class="section__container steps__container">
+        <h2 class="section__header">
+          Get Hired in 4 <span>Quick Easy Steps</span>
+        </h2>
+        <p class="section__description">
+          Step-by-Step Guide to Quickly Land Your Dream Job
+          and Start Your New Career Journey.
+        </p>
+        <div class="steps__grid">
+          <div class="steps__card">
+            <span><i class="ri-search-fill"></i></span>
+            <h4>Search Job</h4>
+            <p>
+              Dive into our job database tailored to match your skills and
+              preferences. With our advanced search filters, finding the perfect
+              job has never been easier.
+            </p>
+          </div>
+          <div class="steps__card">
+            <span><i class="ri-user-fill"></i></span>
+            <h4>Upload CV/Resume</h4>
+            <p>
+              Showcase your experience by uploading your CV or resume. Let
+              employers know why you're the perfect candidate for their job
+              openings.
+            </p>
+          </div>
+          <div class="steps__card">
+            <span><i class="ri-file-paper-fill"></i></span>
+            <h4>Get Job</h4>
+            <p>
+              Take the final step towards your new career. Get ready to embark
+              on your professional journey and secure the job you've been
+              dreaming of.
+            </p>
+          </div>
+          <div class="steps__card">
+            <span><i class="ri-briefcase-fill"></i></span>
+            <h4>Stay Updated</h4>
+            <p>
+              Sign up for job alerts to receive the latest opportunities straight to your inbox. 
+              Stay ahead of the competition by being the first to apply for newly posted jobs that
+               match your profile and preferences.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+   
+
+
+    
+
+    <section class="section__container explore__container">
+      <h2 class="section__header">
+        <span>Countless Career Options</span> Are Waiting For You To Explore
+      </h2>
+      <p class="section__description">
+        Discover a World of Exciting Opportunities and Endless Possibilities,
+        and Find the Perfect Career Path to Shape Your Future.
+      </p>
+      <div class="explore__grid">
+        <div class="explore__card">
+          <span><i class="ri-pencil-ruler-2-fill"></i></span>
+          <h4>Design</h4>
+          <p>200+ jobs openings</p>
+        </div>
+        <div class="explore__card">
+          <span><i class="ri-bar-chart-box-fill"></i></span>
+          <h4>Sales</h4>
+          <p>350+ jobs openings</p>
+        </div>
+        <div class="explore__card">
+          <span><i class="ri-megaphone-fill"></i></span>
+          <h4>Marketing</h4>
+          <p>500+ jobs openings</p>
+        </div>
+        <div class="explore__card">
+          <span><i class="ri-wallet-3-fill"></i></span>
+          <h4>Finance</h4>
+          <p>200+ jobs openings</p>
+        </div>
+        <div class="explore__card">
+          <span><i class="ri-car-fill"></i></span>
+          <h4>Automobile</h4>
+          <p>250+ jobs openings</p>
+        </div>
+      
+        <div class="explore__card">
+          <span><i class="ri-computer-fill"></i></span>
+          <h4>Admin</h4>
+          <p>100+ jobs openings</p>
+        </div>
+        <div class="explore__card">
+          <span><i class="ri-building-fill"></i></span>
+          <h4>Construction</h4>
+          <p>500+ jobs openings</p>
+        </div>
+      </div>
+     <div class="explore__btn">
+      <a href="/job">
+        <button class="btn"> 
+          View All Caterogories
+       </button>
+      </a>
+
+     </div>
+    </section>
+
+    
+      <div class="swiper">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+          <!-- Slides -->
+          <div class="swiper-slide">
+            <div class="client__card">
+             
+       
+            </div>
+          </div>
+        </div>
+      </div>
+    </section> 
+
+    <footer class="footer">
+      <div class="section__container footer__container">
+        <div class="footer__col">
+          <div class="footer__logo">
+            <a href="#" class="logo">Job<span>Hive</span></a>
+          </div>
+          <p>
+            Our platform is designed to help you find the perfect job and
+            achieve your professional dreams.
+          </p>
+        </div>
+        <div class="footer__col">
+          <h4>Quick Links</h4>
+          <ul class="footer__links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Jobs</a></li>
+            <li><a href="#">Testimonials</a></li>
+            <li><a href="#">Contact Us</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer__col">
+          <h4>Contact Us</h4>
+          <ul class="footer__links">
+            <li>
+              <a href="#">
+                <span><i class="ri-phone-fill"></i></span> +91 234 56788
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <span><i class="ri-map-pin-2-fill"></i></span> 123 Main Street,
+                Anytown, USA
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bar">
+        Copyright © 2021 Job Hive. All rights reserved.
+
+      </div>
+    </footer>
+
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="/js/main.js"></script>
+  </body>
+</html>
