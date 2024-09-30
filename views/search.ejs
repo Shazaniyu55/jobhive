@@ -180,10 +180,10 @@
       <abbr title="What would you like to know"><i class="fa-solid fa-info"></i></abbr>
   
   
-      <% if (employers.length === 0) { %>
+      <% if (result.length === 0) { %>
         <p style="text-align: center;">No jobs Posted yet.</p>
       <% } else { %>
-        <% employers.forEach(jobs => { %>
+        <% result.forEach(jobs => { %>
 
   
       <div class="dresult" data-job-id="<%= jobs.id %>" data-admin-email="<%= jobs.id %>" data-job-title="<%= jobs.title %>"  data-posted-by="<%= jobs.postedBy %>">
