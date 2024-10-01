@@ -179,52 +179,52 @@
       <p class="resup" id="message">Job Search Results</p>
       <abbr title="What would you like to know"><i class="fa-solid fa-info"></i></abbr>
   
-  
       <% if (result.length === 0) { %>
-        <p style="text-align: center;">No jobs Posted yet.</p>
+          <p style="text-align: center;">No jobs Posted yet.</p>
       <% } else { %>
-        <% result.forEach(jobs => { %>
-
+          <% result.forEach(jobs => { %>
   
-      <div class="dresult" data-job-id="<%= jobs.id %>" data-admin-email="<%= jobs.id %>" data-job-title="<%= jobs.title %>"  data-posted-by="<%= jobs.postedBy %>">
-          <div class="star">
-              <i class="fa-solid fa-star"></i>
-              <p id="feat">Featured</p>
-          </div>
+              <div class="dresult" data-job-id="<%= jobs.id %>" data-admin-email="<%= jobs.id %>" data-job-title="<%= jobs.title %>" data-posted-by="<%= jobs.postedBy %>">
+                  <div class="star">
+                      <i class="fa-solid fa-star"></i>
+                      <p id="feat">Featured</p>
+                  </div>
   
-          <div class="timee">
-            <p id="time"><%= jobs.createdAt.toDateString() %></p>
-        </div>
-
-          <div class="two-pp">
-              <p id="topic"><%= jobs.title %></p>
-          </div>
+                  <div class="timee">
+                      <p id="time"><%= jobs.createdAt.toDateString() %></p>
+                  </div>
   
-        
+                  <div class="two-pp">
+                      <p id="topic"><%= jobs.title %></p>
+                  </div>
   
-          <div class="more-pps">
-              <p id="re">100% <%= jobs.jobtype %></p>
-              <p id="timee"><%= jobs.jobtype %></p>
-              <p id="amount"><span id="pay"><%= jobs.hourlyrate %></span><span id="currency">USD</span> <span id="duration">Hourly</span></p>
-          </div>
+                  <div class="more-pps">
+                      <p id="re">100% <%= jobs.jobtype %></p>
+                      <p id="timee"><%= jobs.jobtype %></p>
+                      <p id="amount"><span id="pay"><%= jobs.hourlyrate %></span><span id="currency">USD</span> <span id="duration">Hourly</span></p>
+                  </div>
   
-          <div class="where">
-              <i class="fa fa-location-dot"></i>
-              <p id="wf"><%= jobs.state %></p>
-          </div>
+                  <div class="where">
+                      <i class="fa fa-location-dot"></i>
+                      <p id="wf"><%= jobs.state %></p>
+                  </div>
   
-          <div class="talk">
-              <p id="talkp"><%= jobs.description %></p>
-          </div>
+                  <div class="talk">
+                      <p id="talkp" class="description">
+                          <span class="short-description"><%= jobs.description.length > 100 ? jobs.description.slice(0, 100) + '...' : jobs.description %></span>
+                          <span class="full-description" style="display: none;"><%= jobs.description %></span>
+                      </p>
+                      <i class="fa fa-chevron-down toggle-description" style="cursor: pointer;"></i>
+                  </div>
   
-          <div class="profile">
-              <img src="<%= jobs.posterimg %>" alt="profile-img">
-              <p id="profile-name"><%= jobs.postername %></p>
-          </div>
-          
-          <button class="btn apply-btn">Apply</button>
-      </div>
-      <% }) %>
+                  <div class="profile">
+                      <img src="<%= jobs.posterimg %>" alt="profile-img">
+                      <p id="profile-name"><%= jobs.postername %></p>
+                  </div>
+  
+                  <button class="btn apply-btn">Apply</button>
+              </div>
+          <% }) %>
       <% } %>
   </div>
 </div>
@@ -250,7 +250,7 @@
           <input type="hidden" id="popup-admin-email"  name="adminEmail">
 
           <input type="hidden" id="popup-job-title-hidden" name="jobTitle">
-          <input type="text" id="popup-posted-by" name="jobId"> <!-- New hidden field -->
+          <input type="hidden" id="popup-posted-by" name="jobId"> <!-- New hidden field -->
 
           <!-- User ID Label and Input -->
           <label for="popup-fullname">Full Name:</label>
@@ -283,6 +283,26 @@
 
  <!-- popup -->
  <script>
+
+document.querySelectorAll('.toggle-description').forEach(icon => {
+        icon.addEventListener('click', () => {
+            const description = icon.parentElement.querySelector('.description');
+            const shortDescription = description.querySelector('.short-description');
+            const fullDescription = description.querySelector('.full-description');
+
+            if (fullDescription.style.display === 'none') {
+                fullDescription.style.display = 'inline';
+                shortDescription.style.display = 'none';
+                icon.classList.remove('fa-chevron-down');
+                icon.classList.add('fa-chevron-up');
+            } else {
+                fullDescription.style.display = 'none';
+                shortDescription.style.display = 'inline';
+                icon.classList.remove('fa-chevron-up');
+                icon.classList.add('fa-chevron-down');
+            }
+        });
+    });
     
   document.addEventListener('DOMContentLoaded', function() {
   const popup = document.getElementById('popup');
