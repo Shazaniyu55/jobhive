@@ -116,7 +116,7 @@ app.get('/logout', (req, res) => {
         if (err) {
             return res.status(500).json({ status: "Failed", message: err.message });
         }
-        res.redirect('/adminlogin'); // Redirect to login page after logout
+        res.redirect('/admin'); // Redirect to login page after logout
     });
 });
 app.use((req, res, next) => {
