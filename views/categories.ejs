@@ -252,12 +252,16 @@
                           </div>
           
                           <div class="talk">
-                              <p id="talkp" class="description">
-                                  <span class="short-description"><%= jobs.description.length > 100 ? jobs.description.slice(0, 100) + '...' : jobs.description %></span>
-                                  <span class="full-description" style="display: none;"><%= jobs.description %></span>
-                              </p>
-                              <i class="fa fa-chevron-down toggle-description" style="cursor: pointer;"></i>
-                          </div>
+                            <p id="talkp" class="description">
+                                <span class="short-description">
+                                    <%= jobs.description.length > 100 ? jobs.description.slice(0, 100) + '...' : jobs.description %>
+                                </span>
+                                <span class="full-description" style="display: none;">
+                                    <%= jobs.description.replace(/\n/g, '<br>') %>  <!-- Use <br> to maintain line breaks -->
+                                </span>
+                            </p>
+                            <i class="fa fa-chevron-down toggle-description" style="cursor: pointer;"></i>
+                        </div>
           
                           <div class="profile">
                               <img src="<%= jobs.posterimg %>" alt="profile-img">
