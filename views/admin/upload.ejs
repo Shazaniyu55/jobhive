@@ -51,6 +51,39 @@
        0% { transform: rotate(0deg); }
        100% { transform: rotate(360deg); }
    }
+
+   .messageForm .halfWidth{
+	flex-basis: 48%;
+}
+.messageForm .fullWidth{
+	flex-basis: 100%;
+}
+.messageForm input, .messageForm textarea{
+	width: 100%;
+	font-size: 18px;
+	padding: 2px 0px;
+	background-color: hsl(275, 54%, 33%);
+	color: #ffffff;
+	border: none;
+	border-bottom: 2px solid #ffffff;
+	outline: none;
+}
+.messageForm textarea{
+	resize: none;
+	height: 220px;
+	display: block;
+}
+textarea::-webkit-scrollbar{
+	width: 5px;
+}
+textarea::-webkit-scrollbar-track{
+	background-color: hsl(275, 54%, 33%);
+	border-radius: 15px;
+}
+textarea::-webkit-scrollbar-thumb{
+	background-color: rgb(255, 255, 255);
+	border-radius: 15px;
+}
    
   </style>
   </head>
@@ -130,7 +163,7 @@
                       </div>
                       <div class="form-group">
                         <label for="exampleInputEmail1">Description </label>
-                        <textarea  name="description" ></textarea>
+                        <textarea id="message" name="description" ></textarea>
                         <!-- <input type="text" name="description" class="form-control" id="exampleInputEmail1" placeholder="Description" required> -->
                       </div>
                       <div class="form-group">
