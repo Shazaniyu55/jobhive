@@ -103,13 +103,7 @@ app.get('/manage/:adminId', async(req, res)=>{
     }
 })
   
-app.get('/appliedUsers', async(req, res)=>{
-    try {
-        
-    } catch (error) {
-        
-    }
-})
+
 
 app.get('/logout', (req, res) => {
     req.session.destroy(err => {
