@@ -33,7 +33,7 @@ app.set('views', path.join(__dirname, 'views'));
 
 //middleware
 
-
+const newUser = [];
 app.get('/', (req, res)=>{
   
     res.render('index')
