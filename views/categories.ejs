@@ -134,6 +134,22 @@
        height: 40px;
        animation: spin 1s linear infinite;
    }
+   .description {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #333;
+  text-align: justify;
+  word-wrap: break-word;
+  white-space: pre-line;
+  margin-top: 10px;
+}
+
+.description .full-description,
+.description .short-description {
+  display: inline-block;
+  width: 100%;
+}
+
    
    @keyframes spin {
        0% { transform: rotate(0deg); }
@@ -253,9 +269,10 @@
           
                           <div class="talk">
                               <p id="talkp" class="description">
-                                  <span class="short-description"><%= jobs.description.length > 100 ? jobs.description.slice(0, 100) + '...' : jobs.description %></span>
-                                  <span class="full-description" style="display: none;"><%= jobs.description %></span>
-                              </p>
+  <span class="short-description"><%= jobs.description.length > 100 ? jobs.description.slice(0, 100) + '...' : jobs.description %></span>
+  <span class="full-description" style="display: none;"><%= jobs.description %></span>
+</p>
+
                               <i class="fa fa-chevron-down toggle-description" style="cursor: pointer;"></i>
                           </div>
           
