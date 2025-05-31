@@ -258,7 +258,7 @@ const fallbackImage = "https://res.cloudinary.com/damufjozr/image/upload/v170332
         await employer.findByIdAndDelete(jobId);
 
         //res.status(200).json({ message: 'Job deleted successfully' });
-        res.redirect(`dash/${adminId}`)
+        res.redirect(`/dash/${adminId}`)
     } catch (error) {
         console.error('Error deleting job:', error); // Log the error for debugging
         res.status(500).json({ message: 'Error deleting job', error: error.message });
