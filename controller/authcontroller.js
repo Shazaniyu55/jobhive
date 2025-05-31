@@ -131,6 +131,9 @@ const postJob = async(req, res)=>{
         return res.status(400).send('No file uploaded.');
       }
 
+      // Convert the buffer to a readable stream
+const stream = streamifier.createReadStream(req.file.buffer);
+
       // Upload file
 const fileUploadResult = await new Promise((resolve, reject) => {
   stream.pipe(
